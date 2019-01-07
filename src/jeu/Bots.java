@@ -5,7 +5,7 @@ public class Bots extends Characters {
 		super();
 		x = 14;
 		y = 12;
-		this.setImage("TEST_PERSO.jpg");
+		this.setImage("ZombiPunkUp.png");
 		v = 500;
 		nbl=3;
 		th = new ThBots();

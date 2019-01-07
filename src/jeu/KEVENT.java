@@ -24,6 +24,9 @@ public class KEVENT implements KeyListener {
 			Game.c1.dir = "DROITE";
 			Power.direction="DROITE";
 			break;
+		case KeyEvent.VK_J:
+			Game.c1.p.t=1;
+			break;
 		default:
 			break;
 		}
@@ -48,6 +51,9 @@ public class KEVENT implements KeyListener {
 		case KeyEvent.VK_D:
 			Game.c1.dir = "DROITE";
 			Power.direction="DROITE";
+			break;
+		case KeyEvent.VK_J:
+			Game.c1.p.t=1;
 			break;
 		default:
 			break;
