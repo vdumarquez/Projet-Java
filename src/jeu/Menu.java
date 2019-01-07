@@ -27,8 +27,8 @@ public class Menu extends JLayeredPane {
 						(int) (0.86 * this.getHeight()), this.getWidth() / 20, this.getHeight() / 20, this);
 			for (int i = 0; i < Game.c1.p.length; i++) {
 				if(Game.c1.p[i]!=null) {
-					g.setFont(new Font("TimesRoman", Font.PLAIN, this.getHeight()/15));
-					g.drawString(Game.c1.p[i].c, (int) (0.1 * this.getWidth() + 0.2 * this.getWidth() * i), (int) (0.92 * this.getHeight()));
+					g.setFont(new Font("TimesRoman", Font.PLAIN, this.getHeight()/25));
+					g.drawString(Game.c1.p[i].c, (int) (0.05 * this.getWidth() + 0.2 * this.getWidth() * i), (int) (0.92 * this.getHeight()));
 				g.drawImage(Game.c1.p[i].I, (int) (0.05 * this.getWidth() + 0.05 * this.getWidth() * i),
 						(int) (0.93 * this.getHeight()), this.getWidth() / 15, this.getHeight() / 15, this);
 				

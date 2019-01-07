@@ -29,6 +29,7 @@ public class Power {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	
 	    F=1;
 	} 
 	
