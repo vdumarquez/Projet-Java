@@ -19,14 +19,16 @@ import javafx.scene.paint.Color;
 
 //BOUTON POUVOIR
 public class Power {
-	protected Icon I;
+	protected Image I;
 	protected int F;
-	protected JButton b;
+	protected String c;
 	public Power() {
-		I = new ImageIcon("Sword_power.jpg");
-		b=new JButton(I);
-	    b.setBounds((int) (0.05 * Game.w.pan.layered.getWidth()),(int) (0.93 *  Game.w.pan.layered.getHeight()),
-	    		(int)Game.w.pan.layered.getWidth()/15, (int)Game.w.pan.layered.getHeight()/15 );
+		try {
+			I = ImageIO.read(new File("Sword_power.jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	    F=1;
 	} 
 	

@@ -20,6 +20,7 @@ public class Characters {
 	public Characters(){
 		dir = null;
 		p[0]=new Power();
+		p[0].c="U";
 	}
 
 	public void setImage(String s) {
