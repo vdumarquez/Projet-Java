@@ -1,17 +1,17 @@
 package jeu;
 
-import java.io.IOException;
+
 
 public class Warrior extends Characters {
 	public Warrior()  {
-		super();
+		dir = null;
 		x = 1;
 		y = 1;
-		this.setImage("TEST_PERSO.jpg");
+		this.setImage("WarriorFireUp.png");
 		v = 300;
 		nbl=3;
 		th = new ThCharacters();
 		th.start();
-		
+		p=new Gun();
 	}
 }

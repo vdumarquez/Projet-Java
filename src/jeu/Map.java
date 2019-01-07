@@ -12,7 +12,9 @@ public class Map {
 	public Map() {
 		LFile("niveau1.txt");
 		lvl[Game.c1.y][Game.c1.x] = 50;
-		lvl[Game.b1.y][Game.b1.x] = 50;
+		lvl[Game.b[0].y][Game.b[0].x] = 52;
+		int j=0;
+		j++;
 	}
 
 	public void LFile(String s) {

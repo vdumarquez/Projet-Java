@@ -31,6 +31,15 @@ public class PMap extends JPanel {
 						g.drawImage(Game.c1.I, j * this.getWidth() / 20,
 								(int) (0.05 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 20,
 								this.getHeight() / 20, this);
+					else if(Game.ma.lvl[i][j] == 51)
+						g.drawImage(Game.c1.p.I, j * this.getWidth() / 20,
+								(int) (0.05 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 20,
+								this.getHeight() / 20, this);
+					else if(Game.ma.lvl[i][j]>51) {
+						g.drawImage(Game.b[(int)Game.ma.lvl[i][j]-52].I, j * this.getWidth() / 20,
+								(int) (0.05 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 20,
+								this.getHeight() / 20, this);
+					}
 				}
 			}
 			}else {
