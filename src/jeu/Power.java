@@ -12,6 +12,7 @@ public abstract class Power {
 	static protected String direction;
 	protected int x;
 	protected int y;
-	public abstract void Active();
+	protected int t;
+	Thread thp;
 	
 }

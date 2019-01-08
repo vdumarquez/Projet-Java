@@ -10,6 +10,7 @@ public class ThBots extends Thread {
 			e1.printStackTrace();
 		}
 		while(true) {
+			if(Game.b[0].nbl>0) {
 			int ra =(int)(Math.random()*3);
 			if(Game.b[0].x==Game.c1.x) {
 				if(Game.b[0].y+1==Game.c1.y || Game.b[0].y-1==Game.c1.y) {
@@ -23,6 +24,7 @@ public class ThBots extends Thread {
 			
 			switch(ra) {
 			case 0:
+				Game.b[0].setImage("ZombiPunkUp.png");
 				if (Game.ma.lvl[Game.b[0].y - 1][Game.b[0].x] == 48) {
 					Game.ma.lvl[Game.b[0].y - 1][Game.b[0].x] = 52;
 					Game.ma.lvl[Game.b[0].y][Game.b[0].x] = 48;
@@ -44,6 +46,7 @@ public class ThBots extends Thread {
 				}
 				break;
 			case 3:
+				Game.b[0].setImage("ZombiPunkRight.png");
 				if (Game.ma.lvl[Game.b[0].y][Game.b[0].x + 1] == 48) {
 					Game.ma.lvl[Game.b[0].y][Game.b[0].x + 1] = 52;
 					Game.ma.lvl[Game.b[0].y][Game.b[0].x] = 48;
@@ -61,6 +64,10 @@ public class ThBots extends Thread {
 				e.printStackTrace();
 			}
 			Game.w.pan.repaint();
+			
+			}else {
+				Game.ma.lvl[Game.b[0].y][Game.b[0].x]=48;
+			}
 		}
 	}
 }

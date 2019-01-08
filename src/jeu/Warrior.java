@@ -7,11 +7,9 @@ public class Warrior extends Characters {
 		dir = null;
 		x = 1;
 		y = 1;
-		this.setImage("WarriorFireUp.png");
+		this.setImage("WarriorArUp.png");
 		v = 300;
 		nbl=3;
-		th = new ThCharacters();
-		th.start();
 		p=new Gun();
 	}
 }
