@@ -7,18 +7,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Map {
-	protected char[][] lvl = new char[16][20];
+	protected static EMap[][] lvl = new EMap[16][20];
 
 	public Map() {
 		LFile("niveau1.txt");
-		lvl[Game.c1.y][Game.c1.x] = 50;
-		lvl[Game.b[0].y][Game.b[0].x] = 52;
-		int j=0;
-		j++;
+		lvl[Game.c1.y][Game.c1.x] = EMap.PLAYER;
+		lvl[Game.b[0].y][Game.b[0].x] = EMap.BOT;
 	}
 
 	public void LFile(String s) {
 		try {
+			char c;
 			InputStream flux = new FileInputStream(s);
 			InputStreamReader lecture = new InputStreamReader(flux);
 			BufferedReader buff = new BufferedReader(lecture);
@@ -26,7 +25,11 @@ public class Map {
 			int i = 0, j;
 			while ((line = buff.readLine()) != null) {
 				for (j = 0; j < 20; j++) {
-					lvl[i][j] = line.charAt(j);
+					c = line.charAt(j);
+					if(c=='1')
+						lvl[i][j] = EMap.WALL;
+					else
+						lvl[i][j] = EMap.EMPTY;
 				}
 				j = 0;
 				i++;

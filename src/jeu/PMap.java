@@ -23,20 +23,25 @@ public class PMap extends JPanel {
 			Image mapp = ImageIO.read(new File("mur1.png"));
 			for (int i = 0; i < 16; i++) {
 				for (int j = 0; j < 20; j++) {
-					if (Game.ma.lvl[i][j] == 49)
+					if (Game.ma.lvl[i][j] == EMap.WALL)
 						g.drawImage(mapp, j * this.getWidth() / 20,
 								(int) (0.05 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 20,
 								this.getHeight() / 20, this);
-					else if (Game.ma.lvl[i][j] == 50)
+					else if (Game.ma.lvl[i][j] == EMap.PLAYER)
 						g.drawImage(Game.c1.I, j * this.getWidth() / 20,
 								(int) (0.05 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 20,
 								this.getHeight() / 20, this);
-					else if(Game.ma.lvl[i][j] == 51)
+					else if(Game.ma.lvl[i][j] == EMap.POWER)
 						g.drawImage(Game.c1.p.I, j * this.getWidth() / 20,
 								(int) (0.05 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 20,
 								this.getHeight() / 20, this);
-					else if(Game.ma.lvl[i][j]>51) {
-						g.drawImage(Game.b[(int)Game.ma.lvl[i][j]-52].I, j * this.getWidth() / 20,
+					else if(Game.ma.lvl[i][j]==EMap.BOT) {
+						int k;
+						for(k=0;k<Game.b.length;k++) {
+							if(j==Game.b[k].x&&i==Game.b[k].y)
+								break;
+						}
+						g.drawImage(Game.b[k].I, j * this.getWidth() / 20,
 								(int) (0.05 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 20,
 								this.getHeight() / 20, this);
 					}

@@ -26,8 +26,8 @@ public class Gun extends Power {
 		y_=y;
 		if(count<d) {
 			count++;
-			if(Game.ma.lvl[y_][x_]==51)
-				Game.ma.lvl[y_][x_]=48;
+			if(Game.ma.lvl[y_][x_]==EMap.POWER)
+				Game.ma.lvl[y_][x_]=EMap.EMPTY;
 			switch(direction) {
 			case HAUT:
 				y_--;
@@ -44,20 +44,25 @@ public class Gun extends Power {
 			default:
 				break;
 			}
-			if(Game.ma.lvl[y_][x_]==48) {
-				Game.ma.lvl[y_][x_]=51;
+			if(Game.ma.lvl[y_][x_]==EMap.EMPTY) {
+				Game.ma.lvl[y_][x_]=EMap.POWER;
 				x=x_;
 				y=y_;
 			}
-			else if(Game.ma.lvl[y_][x_]>51) {
-				Game.b[Game.ma.lvl[y_][x_]-52].nbl=Game.b[Game.ma.lvl[y_][x_]-52].nbl-Game.c1.p.F;
+			else if(Game.ma.lvl[y_][x_]==EMap.BOT) {
+				int i;
+				for(i=0;i<Game.b.length;i++) {
+					if(x_==Game.b[i].x&&y_==Game.b[i].y)
+						break;
+				}
+				Game.b[i].nbl=Game.b[i].nbl-Game.c1.p.F;
 				x=Game.c1.x;
 				y=Game.c1.y;
 				count=d;
 			}
 			
-		}else if(Game.ma.lvl[y_][x_]==51){
-			Game.ma.lvl[y_][x_]=48;
+		}else if(Game.ma.lvl[y_][x_]==EMap.POWER){
+			Game.ma.lvl[y_][x_]=EMap.EMPTY;
 			x=Game.c1.x;
 			y=Game.c1.x;
 		}

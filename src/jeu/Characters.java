@@ -15,7 +15,6 @@ public class Characters {
 	protected Image I;
 	protected Deplacement dir;
 	protected long v;
-	Thread th;
 
 	public Characters(Character c){
 		if(c==Character.PISTOL)
@@ -50,9 +49,9 @@ public class Characters {
 			default:
 				break;
 			}
-			if (Game.ma.lvl[y_][x_] == 48) {
-				Game.ma.lvl[y_][x_] = 50;
-				Game.ma.lvl[y_][x_] = 48;
+			if (Map.lvl[y_][x_] == EMap.EMPTY) {
+				Map.lvl[y_][x_] = EMap.PLAYER;
+				Map.lvl[y_][x_] = EMap.EMPTY;
 				x=x_;
 				y=y_;
 			}
@@ -76,8 +75,6 @@ public class Characters {
 		setImage("ZombiPunkUp.png");
 		v = 500;
 		nbl=3;
-		th = new ThBots();
-		th.start();
 	}
 
 	public void setImage(String s) {
