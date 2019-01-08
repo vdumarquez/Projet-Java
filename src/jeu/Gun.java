@@ -16,56 +16,51 @@ public class Gun extends Power {
 		direction=null;
 		F=1;
 		d=4;
-		thp= new ThPower();
-		//thp.start();
 	}
 
 	@Override
 	void Active() {
 		// TODO Auto-generated method stub
-		String dir;
-		int x,y;
-		x=Game.c1.x;
-		y=Game.c1.y;
-		dir=Power.direction;
-		for(int i=0;i<Game.c1.p.d;i++) {
-			if(Game.ma.lvl[y][x]==51)
-				Game.ma.lvl[y][x]=48;
-			switch(dir) {
-			case "HAUT":
-				y--;
+		int x_,y_,count=0;
+		x_=x;
+		y_=y;
+		if(count<d) {
+			count++;
+			if(Game.ma.lvl[y_][x_]==51)
+				Game.ma.lvl[y_][x_]=48;
+			switch(direction) {
+			case HAUT:
+				y_--;
 				break;
-			case "BAS":
-				y++;
+			case BAS:
+				y_++;
 				break;
-			case "GAUCHE":
-				x--;
+			case GAUCHE:
+				x_--;
 				break;
-			case "DROITE":
-				x++;
+			case DROITE:
+				x_++;
 				break;
 			default:
 				break;
 			}
-			if(Game.ma.lvl[y][x]==48)
-				Game.ma.lvl[y][x]=51;
-			else if(Game.ma.lvl[y][x]>51) {
-				Game.b[Game.ma.lvl[y][x]-52].nbl=Game.b[Game.ma.lvl[y][x]-52].nbl-Game.c1.p.F;
-				break;
-			}else {
-				break;
+			if(Game.ma.lvl[y_][x_]==48) {
+				Game.ma.lvl[y_][x_]=51;
+				x=x_;
+				y=y_;
 			}
-			Game.w.pan.repaint();
-			try {
-				Thread.sleep(200);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			else if(Game.ma.lvl[y_][x_]>51) {
+				Game.b[Game.ma.lvl[y_][x_]-52].nbl=Game.b[Game.ma.lvl[y_][x_]-52].nbl-Game.c1.p.F;
+				x=Game.c1.x;
+				y=Game.c1.y;
+				count=d;
 			}
+			
+		}else if(Game.ma.lvl[y_][x_]==51){
+			Game.ma.lvl[y_][x_]=48;
+			x=Game.c1.x;
+			y=Game.c1.x;
 		}
-		if(Game.ma.lvl[y][x]==51)
-			Game.ma.lvl[y][x]=48;
-		Game.w.pan.repaint();
 	}
 
 	
