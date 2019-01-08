@@ -25,7 +25,10 @@ public class KEVENT implements KeyListener {
 			Power.direction="DROITE";
 			break;
 		case KeyEvent.VK_J:
-			Game.c1.p.t=1;
+			if(Game.c1.p.thp.getState()==Thread.State.NEW)
+				Game.c1.p.thp.start();
+			else
+				Game.c1.p.thp.stop();
 			break;
 		default:
 			break;
@@ -53,7 +56,10 @@ public class KEVENT implements KeyListener {
 			Power.direction="DROITE";
 			break;
 		case KeyEvent.VK_J:
-			Game.c1.p.t=1;
+			if(Game.c1.p.thp.getState()==Thread.State.NEW)
+				Game.c1.p.thp.start();
+			else
+				Game.c1.p.thp.run();;
 			break;
 		default:
 			break;
@@ -65,4 +71,5 @@ public class KEVENT implements KeyListener {
 		
 	}
 
+	
 }
