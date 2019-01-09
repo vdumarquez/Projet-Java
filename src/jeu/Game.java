@@ -21,7 +21,7 @@ public class Game {
 		b[4]=new Characters(Character.ZFAT);
 		b[5]=new Characters(Character.ZRED);
 		w = new Window();
-		
+		qqqqqqqqqqq;
 		Play();
 		
 	}
