@@ -5,5 +5,6 @@ public enum EMap {
 	BOT,
 	POWER,
 	WALL,
+	EXPLORED,
 	EMPTY;
 }
