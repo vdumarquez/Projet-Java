@@ -21,10 +21,9 @@ public class Game {
 		b[4]=new Characters(Character.ZFAT);
 		b[5]=new Characters(Character.ZRED);
 		w = new Window();
-		while(start==false) {
-			//System.out.println("");
-		}
+		while(true) {
 		Play();
+		}
 		
 	}
 	
@@ -33,8 +32,8 @@ public class Game {
 		long tb[]=new long[6];
 		for(int i=0;i<tb.length;i++)
 			tb[i]=java.lang.System.currentTimeMillis();
-
-		while(true) {
+		System.out.println(start);
+		while(start) {
 			w.pan.repaint();
 			if(java.lang.System.currentTimeMillis()-tp>=c1.v) {
 				c1.move();
@@ -50,14 +49,15 @@ public class Game {
 			}
 			if(po&&(java.lang.System.currentTimeMillis()-tpo)>=c1.p.v) {
 				c1.p.Active();
-				for(int i=0;i<b.length;i++) {
-					if(b[i].nbl==0) {
-						Map.lvl[b[i].y][b[i].x]=EMap.EMPTY;
-						b[i].Reset();
-						score=score+1;
-					}
-				}
 				tpo=java.lang.System.currentTimeMillis();
+				}
+			for(int i=0;i<b.length;i++) {
+				if(b[i].nbl==0) {
+					Map.lvl[b[i].y][b[i].x]=EMap.EMPTY;
+					b[i].Reset();
+					score=score+1;
+				}
+				
 		}
 	}
 	}

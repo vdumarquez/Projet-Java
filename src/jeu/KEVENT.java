@@ -48,7 +48,7 @@ public class KEVENT implements KeyListener {
 				Game.po=true;
 			}
 		case KeyEvent.VK_P:
-			Game.start=true;
+			Game.start.change();
 			break;
 		default:
 			break;
