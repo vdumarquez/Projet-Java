@@ -15,6 +15,7 @@ public class Characters {
 	protected Image I;
 	protected Deplacement dir;
 	protected long v;
+	private String name;
 
 	public Characters(Character c){
 		if(c==Character.PISTOL)
@@ -30,20 +31,20 @@ public class Characters {
 			y_=y;
 			switch (dir) {
 			case HAUT:
-				setImage("WarriorPistolUp.png");
+				setImage(name+"Up.png");
 				y_--;
 				break;
 			case BAS:
-				setImage("WarriorPistolDown.png");
+				setImage(name+"Down.png");
 				y_++;
 
 				break;
 			case GAUCHE:
-				setImage("WarriorPistolLeft.png");
+				setImage(name+"Left.png");
 				x_--;
 				break;
 			case DROITE:
-				setImage("WarriorPistolRight.png");
+				setImage(name+"Right.png");
 				x_++;
 				break;
 			default:
@@ -60,19 +61,21 @@ public class Characters {
 	}
 
 	private void WarriorPistol()  {
-		dir = null;
+		name="WarriorPistol";
+		dir = Deplacement.IMMOBILE;
 		x = 1;
 		y = 1;
-		setImage("WarriorPistolUp.png");
+		setImage(name+"Up.png");
 		v = 300;
 		nbl=3;
 		p=new Gun();
 	}
 
 	private void Bots() {
+		name="ZombiPunk";
 		x = 14;
 		y = 12;
-		setImage("ZombiPunkUp.png");
+		setImage(name+"Up.png");
 		v = 500;
 		nbl=3;
 	}

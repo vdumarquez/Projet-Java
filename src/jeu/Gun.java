@@ -26,8 +26,8 @@ public class Gun extends Power {
 		y_=y;
 		if(count<d) {
 			count++;
-			if(Game.ma.lvl[y_][x_]==EMap.POWER)
-				Game.ma.lvl[y_][x_]=EMap.EMPTY;
+			if(Map.lvl[y_][x_]==EMap.POWER)
+				Map.lvl[y_][x_]=EMap.EMPTY;
 			switch(direction) {
 			case HAUT:
 				y_--;
@@ -44,12 +44,12 @@ public class Gun extends Power {
 			default:
 				break;
 			}
-			if(Game.ma.lvl[y_][x_]==EMap.EMPTY) {
-				Game.ma.lvl[y_][x_]=EMap.POWER;
+			if(Map.lvl[y_][x_]==EMap.EMPTY) {
+				Map.lvl[y_][x_]=EMap.POWER;
 				x=x_;
 				y=y_;
 			}
-			else if(Game.ma.lvl[y_][x_]==EMap.BOT) {
+			else if(Map.lvl[y_][x_]==EMap.BOT) {
 				int i;
 				for(i=0;i<Game.b.length;i++) {
 					if(x_==Game.b[i].x&&y_==Game.b[i].y)
@@ -61,8 +61,8 @@ public class Gun extends Power {
 				count=d;
 			}
 			
-		}else if(Game.ma.lvl[y_][x_]==EMap.POWER){
-			Game.ma.lvl[y_][x_]=EMap.EMPTY;
+		}else if(Map.lvl[y_][x_]==EMap.POWER){
+			Map.lvl[y_][x_]=EMap.EMPTY;
 			x=Game.c1.x;
 			y=Game.c1.x;
 		}
