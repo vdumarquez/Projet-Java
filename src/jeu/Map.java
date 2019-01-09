@@ -11,8 +11,6 @@ public class Map {
 
 	public Map() {
 		LFile("niveau1.txt");
-		lvl[Game.c1.y][Game.c1.x] = EMap.PLAYER;
-		lvl[Game.b[0].y][Game.b[0].x] = EMap.BOT;
 	}
 
 	public void LFile(String s) {

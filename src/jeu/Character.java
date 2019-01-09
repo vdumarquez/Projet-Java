@@ -1,9 +1,11 @@
 package jeu;
 
 public enum Character {
-	BOT,
-	PISTOL,
-	AR,
-	FIRE;
+	ZPUNK,
+	ZFAT,
+	ZRED,
+	WPISTOL,
+	WAR,
+	WFIRE;
 
 }

@@ -10,6 +10,7 @@ public class Characters {
 	protected int x;
 	protected int y;
 	protected int nbl;
+	private int nbl_;
 	protected int weight;
 	protected Power p;
 	protected Image I;
@@ -18,10 +19,23 @@ public class Characters {
 	private String name;
 
 	public Characters(Character c){
-		if(c==Character.PISTOL)
+		do {
+			x=(int) (Math.random()*20);
+			y=(int) (Math.random()*16);
+		}while(Map.lvl[y][x]!=EMap.EMPTY);
+		if(c==Character.WPISTOL) {
 			WarriorPistol();
-		if(c==Character.BOT)
-			Bots();
+			Map.lvl[y][x] = EMap.PLAYER;
+		}else if(c==Character.ZPUNK) {
+			ZPUNK();
+			Map.lvl[y][x] = EMap.BOT;
+		}else if(c==Character.ZFAT) {
+			ZFAT();
+			Map.lvl[y][x] = EMap.BOT;
+		}else if(c==Character.ZRED) {
+			ZRED();
+			Map.lvl[y][x] = EMap.BOT;
+		}
 	}
 
 	public void move() {
@@ -51,8 +65,11 @@ public class Characters {
 				break;
 			}
 			if (Map.lvl[y_][x_] == EMap.EMPTY) {
-				Map.lvl[y_][x_] = EMap.PLAYER;
-				Map.lvl[y_][x_] = EMap.EMPTY;
+				if(name.contains("Zombi"))
+					Map.lvl[y_][x_] = EMap.BOT;
+				else
+					Map.lvl[y_][x_] = EMap.PLAYER;
+				Map.lvl[y][x] = EMap.EMPTY;
 				x=x_;
 				y=y_;
 			}
@@ -63,21 +80,56 @@ public class Characters {
 	private void WarriorPistol()  {
 		name="WarriorPistol";
 		dir = Deplacement.IMMOBILE;
-		x = 1;
-		y = 1;
 		setImage(name+"Up.png");
 		v = 300;
 		nbl=3;
 		p=new Gun();
 	}
 
-	private void Bots() {
+	private void ZPUNK() {
 		name="ZombiPunk";
-		x = 14;
-		y = 12;
 		setImage(name+"Up.png");
 		v = 500;
 		nbl=3;
+		nbl_=nbl;
+	}
+
+	private void ZFAT() {
+		name="ZombiFat";
+		setImage(name+"Up.png");
+		v = 800;
+		nbl=5;
+		nbl_=nbl;
+	}
+
+	private void ZRED() {
+		name="ZombiRedhair";
+		setImage(name+"Up.png");
+		v = 300;
+		nbl=2;
+		nbl_=nbl;
+	}
+
+
+	public void Reset() {
+		if(name.contains("Red")) {
+			nbl=nbl_;
+			v=v-10;
+			if(v<100) {
+				v=100;
+				nbl=1;
+			}
+		}else if(name.contains("Fat")) {
+			nbl_++;
+			nbl=nbl_;
+		}else if(name.contains("Punk")) {
+			v=v-10;
+			if(v<=300) {
+				nbl_++;
+				nbl=nbl_;
+				v=300;
+			}
+		}
 	}
 
 	public void setImage(String s) {

@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 public class Gun extends Power {
 	public Gun() {
 		try {
-			I = ImageIO.read(new File("Sword_power.jpg"));
+			I = ImageIO.read(new File("BullletUp.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -16,36 +16,48 @@ public class Gun extends Power {
 		direction=null;
 		F=1;
 		d=4;
+		v=100;
+		
 	}
 
 	@Override
 	void Active() {
 		// TODO Auto-generated method stub
-		int x_,y_,count=0;
+		int x_,y_;
 		x_=x;
 		y_=y;
-		if(count<d) {
-			count++;
-			if(Map.lvl[y_][x_]==EMap.POWER)
-				Map.lvl[y_][x_]=EMap.EMPTY;
+		if(Game.count<d) {
+			Game.count++;
+			
+			try {
 			switch(direction) {
 			case HAUT:
+				IF=ImageIO.read(new File("BullletUp.png"));
 				y_--;
 				break;
 			case BAS:
+				IF=ImageIO.read(new File("BullletDown.png"));
 				y_++;
 				break;
 			case GAUCHE:
+				IF=ImageIO.read(new File("BullletLeft.png"));
 				x_--;
 				break;
 			case DROITE:
+				IF=ImageIO.read(new File("BullletRight.png"));
 				x_++;
 				break;
 			default:
 				break;
 			}
+			}catch(IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if(Map.lvl[y_][x_]==EMap.EMPTY) {
 				Map.lvl[y_][x_]=EMap.POWER;
+				if(Map.lvl[y][x]==EMap.POWER)
+					Map.lvl[y][x]=EMap.EMPTY;
 				x=x_;
 				y=y_;
 			}
@@ -56,15 +68,17 @@ public class Gun extends Power {
 						break;
 				}
 				Game.b[i].nbl=Game.b[i].nbl-Game.c1.p.F;
-				x=Game.c1.x;
-				y=Game.c1.y;
-				count=d;
+				if(Map.lvl[y][x]==EMap.POWER)
+					Map.lvl[y][x]=EMap.EMPTY;
+				Game.count=0;
+				Game.po=false;
 			}
 			
-		}else if(Map.lvl[y_][x_]==EMap.POWER){
-			Map.lvl[y_][x_]=EMap.EMPTY;
-			x=Game.c1.x;
-			y=Game.c1.x;
+		}else {
+			if(Map.lvl[y][x]==EMap.POWER)
+				Map.lvl[y][x]=EMap.EMPTY;
+			Game.po=false;
+			Game.count=0;
 		}
 	}
 
