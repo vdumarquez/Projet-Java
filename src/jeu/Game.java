@@ -10,7 +10,7 @@ public class Game {
 	protected static int score=0;
 	protected static Boolean start=Boolean.FALSE;
 	private static Boolean start_=Boolean.FALSE;
-	private static Boolean lv=Boolean.FALSE;
+	protected static Boolean lv=Boolean.FALSE;
 	private static Boolean wh=Boolean.FALSE;
 	public static void main(String[] args) {
 		ma = new Map();
@@ -78,8 +78,10 @@ public class Game {
 					Map.lvl[b[i].y][b[i].x]=EMap.EMPTY;
 					b[i].dir=Deplacement.IMMOBILE;
 					b[i].nbl--;
+					b[i].x=0;
+					b[i].y=0;
 					score=score+1;
-					if(score!=0&&score%6==0) {
+					if(score!=0&&score%b.length==0) {
 						int x,y;
 						do {
 							x=(int) (Math.random()*20);

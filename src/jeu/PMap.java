@@ -14,7 +14,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class PMap extends JPanel {
-
+	static Image Fond; 
 	public void paintComponent(Graphics g) {
 		if(Game.c1!=null) {
 			if(Game.c1.nbl>0) {
@@ -31,7 +31,7 @@ public class PMap extends JPanel {
 
 	private void DMap(Graphics g) {
 		try {
-			Image Fond = ImageIO.read(new File("Fond1.jpg"));
+			
 			g.drawImage(Fond, 0, (int) (0.05 * this.getHeight()), this.getWidth(), (int) (this.getHeight() * 0.8),
 					this);
 			Image mapp = ImageIO.read(new File("mur1.png"));
@@ -80,6 +80,7 @@ public class PMap extends JPanel {
 		try {
 			Image FondM = ImageIO.read(new File("Fond_Menu.jpg"));
 			Image Heart = ImageIO.read(new File("Coeur_p.png"));
+			Image PaPl = ImageIO.read(new File("PausePlay.png"));
 			g.drawImage(FondM, 0, (int) (0.85 * this.getHeight()), this.getWidth(), (int) (this.getHeight() * 0.2),
 					this);
 			g.drawImage(FondM, 0, 0, this.getWidth(), (int) (this.getHeight() * 0.05),
@@ -90,7 +91,10 @@ public class PMap extends JPanel {
 			g.setFont(new Font("TimesRoman", Font.PLAIN, this.getHeight()/25));
 			g.drawString("Kill:"+Game.score,(int) (0.5* this.getWidth()),(int) (0.04 * this.getHeight()));
 			g.drawString("J", (int) (8* this.getWidth()/15), (int) (0.97 * this.getHeight()));
+			g.drawString("P", (int) (0.7* this.getWidth()), (int) (0.97 * this.getHeight()));
 			g.drawImage(Game.c1.p.I, (int) (0.5 * this.getWidth()),
+					(int) (0.87 * this.getHeight()), this.getWidth() / 15, this.getHeight() / 15, this);
+			g.drawImage(PaPl, (int) (0.7 * this.getWidth()),
 					(int) (0.87 * this.getHeight()), this.getWidth() / 15, this.getHeight() / 15, this);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -110,7 +114,8 @@ public class PMap extends JPanel {
 	}
 
 	private void DPlay(Graphics g) {
-		g.drawString("Press any key to start", (int) (0.4* this.getWidth()), (int) (0.5 * this.getHeight()));
+		g.setFont(new Font("TimesRoman", Font.PLAIN, this.getHeight()/25));
+		g.drawString("Press P to start", (int) (0.35* this.getWidth()), (int) (0.85 * this.getHeight()));
 	}
 
 	private void DPreS(Graphics g) {
