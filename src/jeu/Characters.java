@@ -11,6 +11,7 @@ public class Characters extends Bots {
 	public Characters(Character c){
 		super(c);
 		setPosition();
+		p=new Power(ch);
 		if(c==Character.WPISTOL) {
 			WarriorPistol();
 		}else if(c==Character.WAR) {
@@ -72,7 +73,6 @@ public class Characters extends Bots {
 		setImage(name+"Up.png");
 		v = 300;
 		nbl=3;
-		p=new Gun();
 	}
 	
 	private void WarriorAr()  {
@@ -81,7 +81,6 @@ public class Characters extends Bots {
 		setImage(name+"Up.png");
 		v = 500;
 		nbl=3;
-		p=new Gun();
 	}
 	
 	private void WarriorFire()  {
@@ -90,7 +89,6 @@ public class Characters extends Bots {
 		setImage(name+"Up.png");
 		v = 700;
 		nbl=3;
-		p=new Gun();
 	}
 
 	

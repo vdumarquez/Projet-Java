@@ -7,7 +7,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Map {
-	protected static EMap[][] lvl = new EMap[16][20];
+	static final int NLin=16;
+	static final int NCol=20;
+	protected static EMap[][] lvl = new EMap[NLin][NCol];
 
 	public Map() {
 		LFile("niveau1.txt");

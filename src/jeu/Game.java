@@ -16,6 +16,7 @@ public class Game {
 		ma = new Map();
 		b = new Bots[6];
 		b[0]=new Bots(Character.ZPUNK);
+		
 		b[1]=new Bots(Character.ZFAT);
 		b[2]=new Bots(Character.ZRED);
 		b[3]=new Bots(Character.ZPUNK);
@@ -65,7 +66,7 @@ public class Game {
 			for(int i=0;i<b.length;i++) {
 				if(java.lang.System.currentTimeMillis()-tb[i]>=b[i].v) {
 					if(b[i].nbl>0) {
-						b[i].dir=Deplacement.DROITE;
+						b[i].dir=Algo.Move_Bot(b[i].x, b[i].y);
 						b[i].move();
 						tb[i]=java.lang.System.currentTimeMillis();
 					}
