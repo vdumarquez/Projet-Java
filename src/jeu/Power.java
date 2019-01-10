@@ -34,7 +34,7 @@ public class Power {
 			v=100;
 		}else if(c==Character.WAR) {
 			try {
-				I = ImageIO.read(new File("LanceFlamme.png"));
+				I = ImageIO.read(new File("AR.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

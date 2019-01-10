@@ -80,9 +80,13 @@ public class Game {
 					b[i].nbl--;
 					score=score+1;
 					if(score!=0&&score%6==0) {
-						start=Boolean.FALSE;
-						start_=Boolean.FALSE;
-						lv=Boolean.TRUE;
+						int x,y;
+						do {
+							x=(int) (Math.random()*20);
+							y=(int) (Math.random()*16);
+						}while(Map.lvl[y][x]!=EMap.EMPTY);
+						Map.lvl[y][x]=EMap.PORTAL;
+						
 					}
 				}
 

@@ -35,6 +35,7 @@ public class PMap extends JPanel {
 			g.drawImage(Fond, 0, (int) (0.05 * this.getHeight()), this.getWidth(), (int) (this.getHeight() * 0.8),
 					this);
 			Image mapp = ImageIO.read(new File("mur1.png"));
+			
 			for (int i = 0; i < 16; i++) {
 				for (int j = 0; j < 20; j++) {
 					if (Map.lvl[i][j] == EMap.WALL)
@@ -61,6 +62,11 @@ public class PMap extends JPanel {
 							g.drawImage(Game.b[k].I, j * this.getWidth() / 20,
 									(int) (0.05 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 20,
 									this.getHeight() / 20, this);
+					}else if(Map.lvl[i][j]==EMap.PORTAL) {
+						Image Portal = ImageIO.read(new File("Portal.png"));
+						g.drawImage(Portal, j * this.getWidth() / 20,
+								(int) (0.05 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 20,
+								this.getHeight() / 16, this);
 					}
 				}	
 			}
