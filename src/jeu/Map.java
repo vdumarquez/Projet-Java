@@ -10,16 +10,34 @@ public class Map {
 	static final int NLin=16;
 	static final int NCol=20;
 	protected static EMap[][] lvl = new EMap[NLin][NCol];
-
+	private static int niv=0;
 	public Map() {
-		lvl=LFile("niveau1.txt");
+		lvl=LFile();
 	}
 
-	public static EMap[][] LFile(String s) {
+	public static EMap[][] LFile() {
+		String s;
+		if(niv==0) {
+			niv=1;
+			s="niveau1.txt";
+		}else if(niv==1) {
+			niv=2;
+			s="niveau1.txt";
+		}else if(niv==2) {
+			niv=3;
+			s="niveau1.txt";
+		}else if(niv==3) {
+			niv=4;
+			s="niveau1.txt";
+		}else if(niv==4) {
+			niv=0;
+			s="niveau1.txt";
+		}
+			
 		EMap[][] lvl_ = new EMap[NLin][NCol];
 		try {
 			char c;
-			InputStream flux = new FileInputStream(s);
+			InputStream flux = new FileInputStream("niveau1.txt");
 			InputStreamReader lecture = new InputStreamReader(flux);
 			BufferedReader buff = new BufferedReader(lecture);
 			String line;
