@@ -1,10 +1,13 @@
 package jeu;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
+import javax.imageio.ImageIO;
 
 public class Map {
 	static final int NLin=16;
@@ -16,28 +19,35 @@ public class Map {
 	}
 
 	public static EMap[][] LFile() {
-		String s;
+		String s,f="Fond";
+		int r;
+		do {
+			r=(int)(Math.random()*5);
+		}while(r==0);
+		EMap[][] lvl_ = new EMap[NLin][NCol];
 		if(niv==0) {
 			niv=1;
 			s="niveau1.txt";
 		}else if(niv==1) {
 			niv=2;
-			s="niveau1.txt";
+			s="niveau2.txt";
 		}else if(niv==2) {
 			niv=3;
 			s="niveau1.txt";
 		}else if(niv==3) {
 			niv=4;
 			s="niveau1.txt";
-		}else if(niv==4) {
+		}else {
 			niv=0;
 			s="niveau1.txt";
 		}
-			
-		EMap[][] lvl_ = new EMap[NLin][NCol];
+		
+		
 		try {
+			f=f+r+".jpg";
+			PMap.Fond = ImageIO.read(new File(f));
 			char c;
-			InputStream flux = new FileInputStream("niveau1.txt");
+			InputStream flux = new FileInputStream(s);
 			InputStreamReader lecture = new InputStreamReader(flux);
 			BufferedReader buff = new BufferedReader(lecture);
 			String line;
