@@ -10,7 +10,7 @@ public class Window extends JFrame {
 
 	public Window() {
 		this.setTitle("MAZE WARRIOR");
-		this.setSize(2000, 2000);
+		this.setSize(1000, 1000);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setContentPane(pan);
