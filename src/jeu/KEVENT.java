@@ -53,10 +53,12 @@ public class KEVENT implements KeyListener {
 					Game.c1=null;
 					Game.w.pan.repaint();
 				}
+				if(Game.start)
+					Game.start=Boolean.FALSE;
+				else
+					Game.start=Boolean.TRUE;
 				break;
 			default:
-				if(Game.c1!=null)
-					Game.start=Boolean.TRUE;
 				break;
 			}
 		}else {

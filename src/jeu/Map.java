@@ -12,10 +12,11 @@ public class Map {
 	protected static EMap[][] lvl = new EMap[NLin][NCol];
 
 	public Map() {
-		LFile("niveau1.txt");
+		lvl=LFile("niveau1.txt");
 	}
 
-	public void LFile(String s) {
+	public static EMap[][] LFile(String s) {
+		EMap[][] lvl_ = new EMap[NLin][NCol];
 		try {
 			char c;
 			InputStream flux = new FileInputStream(s);
@@ -27,9 +28,9 @@ public class Map {
 				for (j = 0; j < 20; j++) {
 					c = line.charAt(j);
 					if(c=='1')
-						lvl[i][j] = EMap.WALL;
+						lvl_[i][j] = EMap.WALL;
 					else
-						lvl[i][j] = EMap.EMPTY;
+						lvl_[i][j] = EMap.EMPTY;
 				}
 				j = 0;
 				i++;
@@ -38,5 +39,6 @@ public class Map {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return lvl_;
 	}
 }

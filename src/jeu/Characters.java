@@ -62,6 +62,8 @@ public class Characters extends Bots {
 				Map.lvl[y][x] = EMap.EMPTY;
 				x=x_;
 				y=y_;
+			}else if(Map.lvl[y_][x_]==EMap.PORTAL) {
+				Map.lvl=Map.LFile("niveau1");
 			}
 			dir=Deplacement.IMMOBILE;
 		}

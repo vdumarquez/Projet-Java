@@ -14,14 +14,11 @@ public class Game {
 	private static Boolean wh=Boolean.FALSE;
 	public static void main(String[] args) {
 		ma = new Map();
-		b = new Bots[6];
+		b = new Bots[3];
 		b[0]=new Bots(Character.ZPUNK);
-		
 		b[1]=new Bots(Character.ZFAT);
 		b[2]=new Bots(Character.ZRED);
-		b[3]=new Bots(Character.ZPUNK);
-		b[4]=new Bots(Character.ZFAT);
-		b[5]=new Bots(Character.ZRED);
+		
 		w = new Window();
 		long tp=java.lang.System.currentTimeMillis(),tpo=java.lang.System.currentTimeMillis();
 		long tb[]=new long[6];
@@ -63,6 +60,10 @@ public class Game {
 				c1.move();
 				tp=java.lang.System.currentTimeMillis();
 			}
+			if(po&&(java.lang.System.currentTimeMillis()-tpo)>=c1.p.v) {
+				c1.p.Active();
+				tpo=java.lang.System.currentTimeMillis();
+			}
 			for(int i=0;i<b.length;i++) {
 				if(java.lang.System.currentTimeMillis()-tb[i]>=b[i].v) {
 					if(b[i].nbl>0) {
@@ -71,10 +72,6 @@ public class Game {
 						tb[i]=java.lang.System.currentTimeMillis();
 					}
 				}
-			}
-			if(po&&(java.lang.System.currentTimeMillis()-tpo)>=c1.p.v) {
-				c1.p.Active();
-				tpo=java.lang.System.currentTimeMillis();
 			}
 			for(int i=0;i<b.length;i++) {
 				if(b[i].nbl==0) {
@@ -94,6 +91,7 @@ public class Game {
 				start=Boolean.FALSE;
 				start_=Boolean.FALSE;
 			}
+			start_=start;
 		}
 	}
 }

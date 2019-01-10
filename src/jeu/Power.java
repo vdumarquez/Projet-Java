@@ -22,7 +22,7 @@ public class Power {
 	public Power(Character c) {
 		if(c==Character.WPISTOL) {
 			try {
-				I = ImageIO.read(new File("BullletUp.png"));
+				I = ImageIO.read(new File("Pistol.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -34,7 +34,7 @@ public class Power {
 			v=100;
 		}else if(c==Character.WAR) {
 			try {
-				I = ImageIO.read(new File("BullletUp.png"));
+				I = ImageIO.read(new File("LanceFlamme.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

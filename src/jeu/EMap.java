@@ -6,5 +6,6 @@ public enum EMap {
 	POWER,
 	WALL,
 	EXPLORED,
+	PORTAL,
 	EMPTY;
 }
