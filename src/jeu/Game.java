@@ -10,7 +10,8 @@ public class Game {
 	protected static int score=0;
 	protected static Boolean start=Boolean.FALSE;
 	private static Boolean start_=Boolean.FALSE;
-	private static Boolean wh=Boolean.FALSE;
+	protected static Boolean wh=Boolean.FALSE;
+	private static Boolean Islvl=Boolean.FALSE;
 	private static long tp=java.lang.System.currentTimeMillis(),tpo=java.lang.System.currentTimeMillis();
 	private static long  tb[]=new long[6];
 	public static void main(String[] args) {
@@ -25,28 +26,33 @@ public class Game {
 		for(int i=0;i<tb.length;i++)
 			tb[i]=java.lang.System.currentTimeMillis();
 		while(true) {
-			if(c1!=null)
+			if(c1!=null) {
 				wh=Boolean.TRUE;
+				
+			}
 			while(wh) {
 				if(start)
 					start_=Boolean.TRUE;
-				if(c1.nbl<=0) {
-					for(int i=0;i<b.length;i++) {
-						b[i].Init(b[i].ch);
-					}
-					Map.lvl[c1.y][c1.x]=EMap.EMPTY;
-				}
-				if(score>0) {
+				
+				if(Islvl) {
+					Islvl=Boolean.FALSE;
 					for(int i=0;i<b.length;i++) {
 						b[i].Reset();
 					}
 				}
 				w.pan.repaint();
 				Play();
+				if(c1.Isalive==Boolean.FALSE) {
+					c1.Isalive=Boolean.TRUE;
+					for(int i=0;i<b.length;i++) {
+						b[i].Init(b[i].ch);
+					}
+					Map.lvl[c1.y][c1.x]=EMap.EMPTY;
+
+				}
 			}
 			w.pan.repaint();
-			if(c1==null)
-				wh=Boolean.FALSE;
+
 		}
 	}
 
@@ -55,15 +61,17 @@ public class Game {
 		while(start_) {
 			if(c1.nbl<=0) {
 				start=Boolean.FALSE;
+				c1.Isalive=Boolean.FALSE;
 			}else {
 				UpdatePlayer();
 				UpdateBot();
+				
 			}
 			w.pan.repaint();
 			start_=start;
 		}
 	}
-	
+
 	private static void UpdatePlayer() {
 		if(java.lang.System.currentTimeMillis()-tp>=c1.v) {
 			c1.move();
@@ -74,7 +82,7 @@ public class Game {
 			tpo=java.lang.System.currentTimeMillis();
 		}
 	}
-	
+
 	private static void UpdateBot() {
 		for(int i=0;i<b.length;i++) {
 			if(b[i].nbl<=0&&b[i].Isalive) {
@@ -91,7 +99,7 @@ public class Game {
 						y=(int) (Math.random()*16);
 					}while(Map.lvl[y][x]!=EMap.EMPTY);
 					Map.lvl[y][x]=EMap.PORTAL;
-
+					Islvl=Boolean.TRUE;
 				}
 			}else if(b[i].nbl>0){
 				if(java.lang.System.currentTimeMillis()-tb[i]>=b[i].v) {

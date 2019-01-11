@@ -82,7 +82,7 @@ public class PMap extends JPanel {
 								this.getHeight()/20, this);
 					}else {
 					g.drawImage(Game.c1.p.IF, (int)(0.02*this.getWidth())+j * this.getWidth() / 20,
-							(int) (0.02 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 100,
+							(int) (0.04 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 100,
 							this.getHeight() / 100, this);
 					}
 				}

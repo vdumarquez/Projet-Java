@@ -21,11 +21,11 @@ public class Bots {
 	
 	public Bots(Character c) {
 		ch=c;
+		Isalive=Boolean.TRUE;
 		Init(c);
 	}
 
 	public void Init(Character c) {
-		Isalive=Boolean.TRUE;
 		if(c.toString().contains("Z"))
 			setPosition();
 		if(c==Character.ZPUNK) {
