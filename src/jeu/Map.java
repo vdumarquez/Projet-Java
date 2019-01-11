@@ -27,7 +27,7 @@ public class Map {
 		EMap[][] lvl_ = new EMap[NLin][NCol];
 		if(niv==0) {
 			niv=1;
-			s="niveau3.txt";
+			s="niveau1.txt";
 		}else if(niv==1) {
 			niv=2;
 			s="niveau2.txt";

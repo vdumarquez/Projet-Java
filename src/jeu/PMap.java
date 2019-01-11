@@ -32,9 +32,9 @@ public class PMap extends JPanel {
 	public PMap(){
 		try {
 			FondDP = ImageIO.read(new File("Fond1.jpg"));
-			P1 = ImageIO.read(new File("WarriorArUp.png"));
-			P2 =ImageIO.read(new File("WarriorFireUp.png"));
-			P3 = ImageIO.read(new File("WarriorPistolUp.png"));
+			P1 = ImageIO.read(new File("Presentation1.png"));
+			P2 =ImageIO.read(new File("Presentation2.png"));
+			P3 = ImageIO.read(new File("Presentation3.png"));
 			mapp = ImageIO.read(new File("mur1.png"));
 			Portal = ImageIO.read(new File("Portal.png"));
 			FondM = ImageIO.read(new File("Fond_Menu.jpg"));
@@ -135,8 +135,8 @@ public class PMap extends JPanel {
 
 	private void DPreS(Graphics g) {
 		g.drawImage(FondDP, 0, 0, this.getWidth(), this.getHeight(),this);
-		g.drawImage(P1, (int)(0.2*this.getWidth()), (int)(0.4*this.getHeight()), this.getWidth()/5, this.getHeight()/5,this);
-		g.drawImage(P2, (int)(0.45*this.getWidth()), (int)(0.4*this.getHeight()), this.getWidth()/5, this.getHeight()/5,this);
-		g.drawImage(P3, (int)(0.70*this.getWidth()), (int)(0.4*this.getHeight()), this.getWidth()/5, this.getHeight()/5,this);
+		g.drawImage(P1, (int)(0.2*this.getWidth()), (int)(0.4*this.getHeight()), this.getWidth()/7, this.getHeight()/4,this);
+		g.drawImage(P2, (int)(0.45*this.getWidth()), (int)(0.4*this.getHeight()), this.getWidth()/7, this.getHeight()/4,this);
+		g.drawImage(P3, (int)(0.70*this.getWidth()), (int)(0.4*this.getHeight()), this.getWidth()/7, this.getHeight()/4,this);
 	}
 }
