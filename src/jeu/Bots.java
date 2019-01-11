@@ -16,6 +16,7 @@ public class Bots {
 	protected long v;
 	protected String name;
 	protected Character ch;
+	protected Boolean Isalive;
 	
 	
 	public Bots(Character c) {
@@ -24,6 +25,7 @@ public class Bots {
 	}
 
 	public void Init(Character c) {
+		Isalive=Boolean.TRUE;
 		if(c.toString().contains("Z"))
 			setPosition();
 		if(c==Character.ZPUNK) {
@@ -67,6 +69,7 @@ public class Bots {
 
 
 	public void Reset() {
+		Isalive=Boolean.TRUE;
 		setPosition();
 		if(name.contains("Red")) {
 			nbl=nbl_;

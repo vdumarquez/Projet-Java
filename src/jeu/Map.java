@@ -27,19 +27,19 @@ public class Map {
 		EMap[][] lvl_ = new EMap[NLin][NCol];
 		if(niv==0) {
 			niv=1;
-			s="niveau1.txt";
+			s="niveau3.txt";
 		}else if(niv==1) {
 			niv=2;
 			s="niveau2.txt";
 		}else if(niv==2) {
 			niv=3;
-			s="niveau1.txt";
+			s="niveau3.txt";
 		}else if(niv==3) {
 			niv=4;
-			s="niveau1.txt";
+			s="niveau4.txt";
 		}else {
 			niv=0;
-			s="niveau1.txt";
+			s="niveau5.txt";
 		}
 		
 		

@@ -30,6 +30,7 @@ public class KEVENT implements KeyListener {
 					Game.c1.p.y=Game.c1.y;
 					Game.po=true;
 				}
+				break;
 			case KeyEvent.VK_Z:
 				Game.c1.dir=Deplacement.HAUT;
 				dir=Deplacement.HAUT;
