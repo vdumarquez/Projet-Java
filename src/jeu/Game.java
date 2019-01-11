@@ -27,29 +27,17 @@ public class Game {
 			tb[i]=java.lang.System.currentTimeMillis();
 		while(true) {
 			if(c1!=null) {
-				wh=Boolean.TRUE;
-				
-			}
-			while(wh) {
 				if(start)
 					start_=Boolean.TRUE;
-				
 				if(Islvl) {
 					Islvl=Boolean.FALSE;
 					for(int i=0;i<b.length;i++) {
 						b[i].Reset();
 					}
 				}
-				w.pan.repaint();
 				Play();
-				if(c1.Isalive==Boolean.FALSE) {
-					c1.Isalive=Boolean.TRUE;
-					for(int i=0;i<b.length;i++) {
-						b[i].Init(b[i].ch);
-					}
-					Map.lvl[c1.y][c1.x]=EMap.EMPTY;
-
-				}
+			}else {
+				System.out.println("");
 			}
 			w.pan.repaint();
 
@@ -58,16 +46,14 @@ public class Game {
 
 
 	public static void Play() {
-		while(start_) {
-			if(c1.nbl<=0) {
-				start=Boolean.FALSE;
-				c1.Isalive=Boolean.FALSE;
-			}else {
+		if(start_) {
+			if(c1.Isalive) {
 				UpdatePlayer();
 				UpdateBot();
-				
+			}else {
+				start=Boolean.FALSE;
+				c1.Isalive=Boolean.FALSE;
 			}
-			w.pan.repaint();
 			start_=start;
 		}
 	}

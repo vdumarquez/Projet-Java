@@ -24,13 +24,19 @@ public class KEVENT implements KeyListener {
 		if(Game.c1!=null) {
 			switch (e.getKeyCode()) {
 			case KeyEvent.VK_P:
-				if(Game.c1.nbl<=0) {
+				if(Game.c1.Isalive==Boolean.FALSE) {
 					Game.c1=null;
+					Game.score=0;
+					Map.niv=0;
+					Map.lvl=Map.LFile();
+					for(int i=0;i<Game.b.length;i++) {
+						Game.b[i].Init(Game.b[i].ch);
+					}
 				}else
-				if(Game.start)
-					Game.start=Boolean.FALSE;
-				else
-					Game.start=Boolean.TRUE;
+					if(Game.start)
+						Game.start=Boolean.FALSE;
+					else
+						Game.start=Boolean.TRUE;
 				break;
 			case KeyEvent.VK_J:
 				if(Game.po==false) {
@@ -56,8 +62,8 @@ public class KEVENT implements KeyListener {
 				Game.c1.dir = Deplacement.DROITE;
 				dir=Deplacement.DROITE;
 				break;
-			
-			
+
+
 			default:
 				break;
 			}

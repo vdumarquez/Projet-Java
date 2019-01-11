@@ -22,7 +22,6 @@ private static Boolean Resolve(int x, int y) {
 
 	if(h==Boolean.TRUE||b==Boolean.TRUE||g==Boolean.TRUE||d==Boolean.TRUE) {
 		PMap[y][x]=EMap.EXPLORED;
-		System.out.println("YES");
 		return Boolean.TRUE;
 	}
 	else
@@ -37,16 +36,6 @@ public static Deplacement Move_Bot(int x, int y) {
 		}
 	}
 	Resolve(x,y);
-	/*for(int i=0;i<Map.NLin;i++) {
-		for(int j=0;j<Map.NCol;j++) {
-			if(PMap[i][j]==EMap.EXPLORED)
-				System.out.print(" E ");
-			else
-				System.out.print("   ");
-		}
-		System.out.println("");
-	}
-	System.out.println("");*/
 	if(PMap[y-1][x]==EMap.EXPLORED) 
 		return Deplacement.HAUT;
 	else if(PMap[y+1][x]==EMap.EXPLORED) 

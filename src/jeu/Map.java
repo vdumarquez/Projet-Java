@@ -13,7 +13,7 @@ public class Map {
 	static final int NLin=16;
 	static final int NCol=20;
 	protected static EMap[][] lvl = new EMap[NLin][NCol];
-	private static int niv=0;
+	protected static int niv=0;
 	public Map() {
 		lvl=LFile();
 	}
