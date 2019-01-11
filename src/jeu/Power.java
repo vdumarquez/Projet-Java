@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 public class Power {
 	protected Image I;
 	protected Image IF;
-	protected int F;
+	protected double F;
 	static protected Deplacement direction;
 	protected int d;
 	protected int x;
@@ -41,7 +41,7 @@ public class Power {
 			}
 
 			direction=null;
-			F=1;
+			F=0.5;
 			d=3;
 			v=50;
 		}

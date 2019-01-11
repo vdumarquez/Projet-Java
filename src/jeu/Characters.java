@@ -64,7 +64,6 @@ public class Characters extends Bots {
 				y=y_;
 			}else if(Map.lvl[y_][x_]==EMap.PORTAL) {
 				Game.start=Boolean.FALSE;
-				Game.lv=Boolean.TRUE;
 				Map.lvl=Map.LFile();
 				setPosition();
 			}

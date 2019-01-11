@@ -9,8 +9,8 @@ import javax.imageio.ImageIO;
 public class Bots {
 	protected int x;
 	protected int y;
-	protected int nbl;
-	private int nbl_;
+	protected double nbl;
+	private double nbl_;
 	protected Image I;
 	protected Deplacement dir;
 	protected long v;
@@ -122,7 +122,7 @@ public class Bots {
 			default:
 				break;
 			}
-			if (Map.lvl[y_][x_] == EMap.EMPTY) {
+			if (Map.lvl[y_][x_] == EMap.EMPTY || Map.lvl[y_][x_] == EMap.POWER ) {
 					Map.lvl[y_][x_] = EMap.BOT;
 				Map.lvl[y][x] = EMap.EMPTY;
 				x=x_;

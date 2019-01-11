@@ -23,7 +23,13 @@ public class KEVENT implements KeyListener {
 	public void depl(KeyEvent e) {
 		if(Game.c1!=null) {
 			switch (e.getKeyCode()) {
-
+			case KeyEvent.VK_J:
+				if(Game.po==false) {
+					Power.direction=dir;
+					Game.c1.p.x=Game.c1.x;
+					Game.c1.p.y=Game.c1.y;
+					Game.po=true;
+				}
 			case KeyEvent.VK_Z:
 				Game.c1.dir=Deplacement.HAUT;
 				dir=Deplacement.HAUT;
@@ -40,14 +46,7 @@ public class KEVENT implements KeyListener {
 				Game.c1.dir = Deplacement.DROITE;
 				dir=Deplacement.DROITE;
 				break;
-			case KeyEvent.VK_J:
-				if(Game.po==false) {
-					Power.direction=dir;
-					Game.c1.p.x=Game.c1.x;
-					Game.c1.p.y=Game.c1.y;
-					Game.po=true;
-				}
-				break;
+			
 			case KeyEvent.VK_P:
 				if(Game.c1.nbl<=0) {
 					Game.c1=null;
