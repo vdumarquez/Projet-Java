@@ -17,6 +17,7 @@ public class Characters extends Bots {
 	@Override
 	public void Init(Character c) {
 		Isalive=Boolean.TRUE;
+		ch=c;
 		setPosition();
 		p.Init(c);
 		if(c==Character.WPISTOL) {
