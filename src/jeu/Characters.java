@@ -8,10 +8,17 @@ public class Characters extends Bots {
 	protected int weight;
 	protected Power p;
 	
-	public Characters(Character c){
-		super(c);
+	
+	public Characters(){
+		super();
+		p=new Power();
+	}
+	
+	@Override
+	public void Init(Character c) {
+		Isalive=Boolean.TRUE;
 		setPosition();
-		p=new Power(ch);
+		p.Init(c);
 		if(c==Character.WPISTOL) {
 			WarriorPistol();
 		}else if(c==Character.WAR) {
@@ -65,6 +72,10 @@ public class Characters extends Bots {
 			}else if(Map.lvl[y_][x_]==EMap.PORTAL) {
 				Game.start=Boolean.FALSE;
 				Map.lvl=Map.LFile();
+				Game.Islvl=Boolean.FALSE;
+				for(int i=0;i<Game.b.length;i++) {
+					Game.b[i].Reset();
+				}
 				setPosition();
 			}
 			dir=Deplacement.IMMOBILE;

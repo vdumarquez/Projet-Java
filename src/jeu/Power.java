@@ -20,7 +20,7 @@ public class Power {
 	protected int y;
 	protected long v;
 	private String mun;
-	public Power(Character c) {
+	public void Init(Character c) {
 		if(c==Character.WPISTOL) {
 			try {
 				I = ImageIO.read(new File("Pistol.png"));
@@ -54,7 +54,6 @@ public class Power {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 			direction=null;
 			F=2;
 			d=1;

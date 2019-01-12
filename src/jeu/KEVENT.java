@@ -21,12 +21,14 @@ public class KEVENT implements KeyListener {
 	}
 
 	public void depl(KeyEvent e) {
-		if(Game.c1!=null) {
+		if(Game.IsStart) {
 			switch (e.getKeyCode()) {
 			case KeyEvent.VK_P:
 				if(Game.c1.Isalive==Boolean.FALSE) {
-					Game.c1=null;
+					Game.IsStart=Boolean.FALSE;
+					Game.CP=null;
 					Game.score=0;
+					Game.Islvl=Boolean.FALSE;
 					Map.niv=0;
 					Map.lvl=Map.LFile();
 					for(int i=0;i<Game.b.length;i++) {
@@ -71,13 +73,14 @@ public class KEVENT implements KeyListener {
 			switch (e.getKeyCode()) {
 
 			case KeyEvent.VK_1:
-				Game.c1= new Characters(Character.WAR);
+				Game.CP=Character.WAR;
+				
 				break;
 			case KeyEvent.VK_2:
-				Game.c1= new Characters(Character.WFIRE);
+				Game.CP=Character.WFIRE;
 				break;
 			case KeyEvent.VK_3:
-				Game.c1= new Characters(Character.WPISTOL);
+				Game.CP=Character.WPISTOL;
 				break;
 			default:
 				break;

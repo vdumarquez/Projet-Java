@@ -50,7 +50,7 @@ public class PMap extends JPanel {
 		}
 	}
 	public void paintComponent(Graphics g) {
-		if(Game.c1!=null) {
+		if(Game.IsStart) {
 			if(Game.c1.nbl>0) {
 				DMenu(g);
 				DMap(g);

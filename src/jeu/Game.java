@@ -1,6 +1,8 @@
 package jeu;
 
 public class Game {
+	protected static boolean IsStart = Boolean.FALSE;
+	protected static Character CP=null;
 	protected static Characters c1=null;
 	protected static Bots b[];
 	protected static Map ma;
@@ -11,7 +13,7 @@ public class Game {
 	protected static Boolean start=Boolean.FALSE;
 	private static Boolean start_=Boolean.FALSE;
 	protected static Boolean wh=Boolean.FALSE;
-	private static Boolean Islvl=Boolean.FALSE;
+	protected static Boolean Islvl=Boolean.FALSE;
 	private static long tp=java.lang.System.currentTimeMillis(),tpo=java.lang.System.currentTimeMillis();
 	private static long  tb[]=new long[6];
 	public static void main(String[] args) {
@@ -20,24 +22,20 @@ public class Game {
 		b[0]=new Bots(Character.ZPUNK);
 		b[1]=new Bots(Character.ZFAT);
 		b[2]=new Bots(Character.ZRED);
-
+		c1= new Characters();
 		w = new Window();
 
 		for(int i=0;i<tb.length;i++)
 			tb[i]=java.lang.System.currentTimeMillis();
+		
 		while(true) {
-			if(c1!=null) {
+			if(IsStart) {
 				if(start)
 					start_=Boolean.TRUE;
-				if(Islvl) {
-					Islvl=Boolean.FALSE;
-					for(int i=0;i<b.length;i++) {
-						b[i].Reset();
-					}
-				}
 				Play();
-			}else {
-				System.out.println("");
+			}else if(CP!=null){
+				IsStart=Boolean.TRUE;
+				c1.Init(CP);
 			}
 			w.pan.repaint();
 
@@ -48,11 +46,12 @@ public class Game {
 	public static void Play() {
 		if(start_) {
 			if(c1.Isalive) {
+				if(c1.nbl<=0)
+					c1.Isalive=Boolean.FALSE;
 				UpdatePlayer();
 				UpdateBot();
 			}else {
 				start=Boolean.FALSE;
-				c1.Isalive=Boolean.FALSE;
 			}
 			start_=start;
 		}

@@ -19,6 +19,10 @@ public class Bots {
 	protected Boolean Isalive;
 	
 	
+	public Bots() {
+		Isalive=Boolean.FALSE;
+	}
+	
 	public Bots(Character c) {
 		ch=c;
 		Isalive=Boolean.TRUE;
