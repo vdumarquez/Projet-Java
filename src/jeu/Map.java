@@ -67,6 +67,7 @@ public class Map {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+			
 		return lvl_;
 	}
 }

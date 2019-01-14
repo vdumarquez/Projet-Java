@@ -8,7 +8,7 @@ private static Boolean Resolve(int x, int y) {
 	if(RMap[y][x]==EMap.WALL||RMap[y][x]==EMap.EXPLORED) {
 		return Boolean.FALSE;
 	}
-	else if(RMap[y][x]==EMap.BOT||RMap[y][x]==EMap.EMPTY||RMap[y][x]==EMap.POWER) {
+	else if(RMap[y][x]==EMap.BOT||RMap[y][x]==EMap.EMPTY||RMap[y][x]==EMap.POWER||RMap[y][x]==EMap.REWARD) {
 		RMap[y][x]=EMap.EXPLORED;
 	h=Resolve(x,y-1);
 	b=Resolve(x,y+1);

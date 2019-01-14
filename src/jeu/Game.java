@@ -1,5 +1,7 @@
 package jeu;
 
+import java.util.ArrayList;
+
 public class Game {
 	protected static boolean IsStart = Boolean.FALSE;
 	protected static Character CP=null;
@@ -14,6 +16,8 @@ public class Game {
 	private static Boolean start_=Boolean.FALSE;
 	protected static Boolean wh=Boolean.FALSE;
 	protected static Boolean Islvl=Boolean.FALSE;
+	public static ArrayList<Reward> Rew = new ArrayList<Reward>();
+	public static Boolean Iskey=Boolean.FALSE;
 	private static long tp=java.lang.System.currentTimeMillis(),tpo=java.lang.System.currentTimeMillis();
 	private static long  tb[]=new long[6];
 	public static void main(String[] args) {
@@ -24,7 +28,6 @@ public class Game {
 		b[2]=new Bots(Character.ZRED);
 		c1= new Characters();
 		w = new Window();
-
 		for(int i=0;i<tb.length;i++)
 			tb[i]=java.lang.System.currentTimeMillis();
 		
@@ -36,6 +39,7 @@ public class Game {
 			}else if(CP!=null){
 				IsStart=Boolean.TRUE;
 				c1.Init(CP);
+				Rew.add(new Reward(Rewards.KEY));
 			}
 			w.pan.repaint();
 
@@ -77,7 +81,8 @@ public class Game {
 				b[i].x=0;
 				b[i].y=0;
 				score=score+1;
-				if(score!=0&&score%b.length==0) {
+				if(score!=0&&score%b.length==0&&Iskey) {
+					Iskey=Boolean.FALSE;
 					int x,y;
 					do {
 						x=(int) (Math.random()*20);

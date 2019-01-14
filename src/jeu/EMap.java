@@ -7,5 +7,6 @@ public enum EMap {
 	WALL,
 	EXPLORED,
 	PORTAL,
+	REWARD,
 	EMPTY;
-}
+	}
