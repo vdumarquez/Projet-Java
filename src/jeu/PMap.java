@@ -28,7 +28,7 @@ public class PMap extends JPanel {
 	
 	public PMap(){
 		try {
-			FondDP = ImageIO.read(new File("MW1.png"));
+			FondDP = ImageIO.read(new File("MW1.jpg"));
 			mapp = ImageIO.read(new File("mur1.png"));
 			Portal = ImageIO.read(new File("Portal.png"));
 			FondM = ImageIO.read(new File("Fond_Menu.jpg"));
