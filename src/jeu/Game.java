@@ -20,6 +20,7 @@ public class Game {
 	public static Boolean Iskey=Boolean.FALSE;
 	private static long tp=java.lang.System.currentTimeMillis(),tpo=java.lang.System.currentTimeMillis();
 	private static long  tb[]=new long[6];
+	
 	public static void main(String[] args) {
 		ma = new Map();
 		b = new Bots[3];
@@ -28,8 +29,7 @@ public class Game {
 		b[2]=new Bots(Character.ZRED);
 		c1= new Characters();
 		w = new Window();
-		Thread ThSound = new Sound();
-		ThSound.start();
+		
 		for(int i=0;i<tb.length;i++)
 			tb[i]=java.lang.System.currentTimeMillis();
 		 

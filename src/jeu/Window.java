@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 public class Window extends JFrame {
 	protected PMap pan = new PMap();
 	protected KEVENT key = new KEVENT();
-	
+	private Thread ThSound;
     
 
 	public Window() {
@@ -18,5 +18,7 @@ public class Window extends JFrame {
 		this.setContentPane(pan);
 		this.setVisible(true);
 		this.addKeyListener(key);
+		ThSound = new Sound();
+		ThSound.start();
 	}
 }

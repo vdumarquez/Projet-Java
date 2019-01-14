@@ -15,7 +15,7 @@ public class Sound extends Thread {
      * @param filename le lien vers le fichier song (URL ou absolute path)
      */
     
-    public Sound() {
+    private void Init() {
     	String filename="Flamingo.WAV";
      try{
       AudioInputStream stream = AudioSystem.getAudioInputStream(new File(filename));
@@ -29,10 +29,10 @@ public class Sound extends Thread {
       e.printStackTrace();
      }
     }
-    public byte[] getSamples(){
+    private byte[] getSamples(){
      return samples;
     }
-    public byte[] getSamples(AudioInputStream stream){
+    private byte[] getSamples(AudioInputStream stream){
      int length = (int)(stream.getFrameLength() * format.getFrameSize());
      byte[] samples = new byte[length];
      DataInputStream in = new DataInputStream(stream);
@@ -44,7 +44,7 @@ public class Sound extends Thread {
      }
      return samples;
     }
-    public void play(InputStream source) {
+    private void play(InputStream source) {
      int bufferSize = format.getFrameSize() * Math.round(format.getSampleRate() / 10);
      byte[] buffer = new byte[bufferSize];
      SourceDataLine line;
@@ -72,10 +72,12 @@ public class Sound extends Thread {
      line.drain();
      line.close();
     }
-    public void Run() {
-        InputStream stream = new ByteArrayInputStream(this.getSamples()); 
+    public void run() {
+        InputStream stream; 
         while(true) {
-        	this.play(stream);
+        	Init();
+        	stream = new ByteArrayInputStream(getSamples());
+        	play(stream);
         }
     }
 }
