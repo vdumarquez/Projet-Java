@@ -28,9 +28,11 @@ public class Game {
 		b[2]=new Bots(Character.ZRED);
 		c1= new Characters();
 		w = new Window();
+		Thread ThSound = new Sound();
+		ThSound.start();
 		for(int i=0;i<tb.length;i++)
 			tb[i]=java.lang.System.currentTimeMillis();
-		
+		 
 		while(true) {
 			if(IsStart) {
 				if(start)

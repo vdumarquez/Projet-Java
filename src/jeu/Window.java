@@ -1,12 +1,14 @@
 package jeu;
 
+
 import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
-import javax.swing.JRootPane;
+
 
 public class Window extends JFrame {
 	protected PMap pan = new PMap();
 	protected KEVENT key = new KEVENT();
+	
+    
 
 	public Window() {
 		this.setTitle("MAZE WARRIOR");
