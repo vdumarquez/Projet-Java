@@ -54,6 +54,16 @@ public class Game {
 					c1.Isalive=Boolean.FALSE;
 				UpdatePlayer();
 				UpdateBot();
+				if(score!=0&&score%b.length==0&&Iskey) {
+					Iskey=Boolean.FALSE;
+					int x,y;
+					do {
+						x=(int) (Math.random()*20);
+						y=(int) (Math.random()*16);
+					}while(Map.lvl[y][x]!=EMap.EMPTY);
+					Map.lvl[y][x]=EMap.PORTAL;
+					Islvl=Boolean.TRUE;
+				}
 			}else {
 				start=Boolean.FALSE;
 			}
@@ -81,16 +91,6 @@ public class Game {
 				b[i].x=0;
 				b[i].y=0;
 				score=score+1;
-				if(score!=0&&score%b.length==0&&Iskey) {
-					Iskey=Boolean.FALSE;
-					int x,y;
-					do {
-						x=(int) (Math.random()*20);
-						y=(int) (Math.random()*16);
-					}while(Map.lvl[y][x]!=EMap.EMPTY);
-					Map.lvl[y][x]=EMap.PORTAL;
-					Islvl=Boolean.TRUE;
-				}
 			}else if(b[i].nbl>0){
 				if(java.lang.System.currentTimeMillis()-tb[i]>=b[i].v) {
 					if(b[i].nbl>0) {

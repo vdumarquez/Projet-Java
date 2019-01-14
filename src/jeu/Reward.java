@@ -23,7 +23,7 @@ public class Reward {
 			if(r_==Rewards.HEART) 
 				I=ImageIO.read(new File("Coeur_p.png"));
 			else if(r_==Rewards.KEY)
-				I=ImageIO.read(new File("PausePlay.png"));
+				I=ImageIO.read(new File("KEY.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
