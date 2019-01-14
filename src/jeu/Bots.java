@@ -17,12 +17,12 @@ public class Bots {
 	protected String name;
 	protected Character ch;
 	protected Boolean Isalive;
-	
-	
+
+
 	public Bots() {
 		Isalive=Boolean.FALSE;
 	}
-	
+
 	public Bots(Character c) {
 		ch=c;
 		Isalive=Boolean.TRUE;
@@ -75,22 +75,22 @@ public class Bots {
 	public void Reset() {
 		Isalive=Boolean.TRUE;
 		setPosition();
-		if(name.contains("Red")) {
+		if(ch==Character.ZRED) {
 			nbl=nbl_;
-			v=v-10;
-			if(v<100) {
-				v=100;
-			}
-		}else if(name.contains("Fat")) {
+			if(v>50)
+				v=v-10;
+		}else if(ch==Character.ZFAT) {
 			nbl_++;
 			nbl=nbl_;
-		}else if(name.contains("Punk")) {
-			v=v-10;
-			nbl=nbl_;
-			if(v<=300) {
+			if(nbl_>15)
+				v=v+10;
+		}else if(ch==Character.ZPUNK) {
+			if(v>300) {
+				v=v-10;
+				nbl=nbl_;
+			}else {
 				nbl_++;
 				nbl=nbl_;
-				v=300;
 			}
 		}
 	}
@@ -102,7 +102,7 @@ public class Bots {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void move() {
 		int x_,y_;
 		if(dir!=Deplacement.IMMOBILE) {
@@ -129,9 +129,12 @@ public class Bots {
 			default:
 				break;
 			}
-			if (Map.lvl[y_][x_] == EMap.EMPTY || Map.lvl[y_][x_] == EMap.POWER ) {
-					Map.lvl[y_][x_] = EMap.BOT;
+			if (Map.lvl[y_][x_] == EMap.EMPTY || Map.lvl[y_][x_] == EMap.POWER || Map.lvl[y_][x_] == EMap.REWARD ) {
+				Map.lvl[y_][x_] = EMap.BOT;
 				Map.lvl[y][x] = EMap.EMPTY;
+				for(int i=0;i<Game.Rew.size();i++)
+					if(y==Game.Rew.get(i).y&&x==Game.Rew.get(i).x)
+						Map.lvl[y][x] = EMap.REWARD;
 				x=x_;
 				y=y_;
 			}else if(Map.lvl[y_][x_] == EMap.PLAYER) {

@@ -27,6 +27,7 @@ public class KEVENT implements KeyListener {
 				if(Game.c1.Isalive==Boolean.FALSE) {
 					Game.IsStart=Boolean.FALSE;
 					Game.CP=null;
+					Game.po=Boolean.FALSE;
 					Game.score=0;
 					Game.Islvl=Boolean.FALSE;
 					Map.niv=0;
@@ -41,11 +42,11 @@ public class KEVENT implements KeyListener {
 						Game.start=Boolean.TRUE;
 				break;
 			case KeyEvent.VK_J:
-				if(Game.po==false) {
+				if(Game.po==Boolean.FALSE) {
 					Power.direction=dir;
 					Game.c1.p.x=Game.c1.x;
 					Game.c1.p.y=Game.c1.y;
-					Game.po=true;
+					Game.po=Boolean.TRUE;
 				}
 				break;
 			case KeyEvent.VK_Z:

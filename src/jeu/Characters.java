@@ -65,7 +65,18 @@ public class Characters extends Bots {
 			default:
 				break;
 			}
-			if (Map.lvl[y_][x_] == EMap.EMPTY) {
+			if (Map.lvl[y_][x_] == EMap.EMPTY || Map.lvl[y_][x_] == EMap.REWARD) {
+				if(Map.lvl[y_][x_] == EMap.REWARD)
+					for(int i=0;i<Game.Rew.size();i++)
+						if(y_==Game.Rew.get(i).y&&x_==Game.Rew.get(i).x)
+							if(Game.Rew.get(i).r==Rewards.HEART) {
+								nbl=nbl+1;
+								Game.Rew.remove(i);
+							}else if(Game.Rew.get(i).r==Rewards.KEY) {
+								Game.Iskey=Boolean.TRUE;
+								Game.Rew.remove(i);
+							}
+								
 				Map.lvl[y_][x_] = EMap.PLAYER;
 				Map.lvl[y][x] = EMap.EMPTY;
 				x=x_;
@@ -73,6 +84,10 @@ public class Characters extends Bots {
 			}else if(Map.lvl[y_][x_]==EMap.PORTAL) {
 				Game.start=Boolean.FALSE;
 				Map.lvl=Map.LFile();
+				Game.Rew.add(new Reward(Rewards.KEY));
+				if(Map.niv%3==0) {
+					Game.Rew.add(new Reward(Rewards.HEART));
+				}
 				Game.Islvl=Boolean.FALSE;
 				for(int i=0;i<Game.b.length;i++) {
 					Game.b[i].Reset();

@@ -44,7 +44,7 @@ public class Power {
 
 			direction=null;
 			F=0.5;
-			d=3;
+			d=4;
 			v=50;
 			mun="Bulllet";
 		}else if(c==Character.WFIRE) {
