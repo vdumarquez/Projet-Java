@@ -21,10 +21,8 @@ public class PMap extends JPanel {
 	private Image Portal;
 	private Image FondM;
 	private Image Heart;
-	private Image PaPl;
 	private Image FondDG;
 	private Image PTS;
-	private Image ZOM;
 	static Image Fond; 
 	
 	public PMap(){
@@ -32,12 +30,10 @@ public class PMap extends JPanel {
 			FondDP = ImageIO.read(new File("MW1.jpg"));
 			mapp = ImageIO.read(new File("mur1.png"));
 			Portal = ImageIO.read(new File("Portal.png"));
-			FondM = ImageIO.read(new File("Fond_Menu.jpg"));
+			FondM = ImageIO.read(new File("Fond_Menu.png"));
 			Heart = ImageIO.read(new File("Coeur_p.png"));
-			PaPl = ImageIO.read(new File("PausePlay.png"));
 			FondDG = ImageIO.read(new File("GameOver.png"));
 			PTS = ImageIO.read(new File("PressToStart.png"));
-			ZOM = ImageIO.read(new File("Zombihead.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,14 +107,9 @@ public class PMap extends JPanel {
 		for (int i = 0; i < Game.c1.nbl; i++)
 			g.drawImage(Heart, (int) (0.05 * this.getWidth() + 0.05 * this.getWidth() * i),
 					(int) (0.86 * this.getHeight()), this.getWidth() / 20, this.getHeight() / 20, this);
-		g.drawImage(ZOM,(int) (0.3* this.getWidth()),(int) (0.87 * this.getHeight()), this.getWidth() / 10, this.getHeight() / 10, this);
 		g.setFont(new Font("TimesRoman", Font.PLAIN, this.getHeight()/25));
 		g.drawString(Integer.toString(Game.score),(int) (0.4* this.getWidth()),(int) (0.94 * this.getHeight()));
-		g.drawString("J", (int) (8* this.getWidth()/15), (int) (0.97 * this.getHeight()));
-		g.drawString("P", (int) (0.7* this.getWidth()), (int) (0.97 * this.getHeight()));
 		g.drawImage(Game.c1.p.I, (int) (0.5 * this.getWidth()),
-				(int) (0.87 * this.getHeight()), this.getWidth() / 15, this.getHeight() / 15, this);
-		g.drawImage(PaPl, (int) (0.7 * this.getWidth()),
 				(int) (0.87 * this.getHeight()), this.getWidth() / 15, this.getHeight() / 15, this);
 	}
 	private void DGameOver(Graphics g) {
