@@ -3,7 +3,7 @@ package jeu;
 import java.util.ArrayList;
 
 public class Game {
-	protected static boolean IsStart = Boolean.FALSE;
+	protected static boolean IsStart = Boolean.FALSE;  		// a t'on choisi le personnage?
 	protected static Character CP=null;
 	protected static Characters c1=null;
 	protected static Bots b[];
@@ -12,9 +12,8 @@ public class Game {
 	protected static boolean po=false;
 	protected static int count=0;
 	protected static int score=0;
-	protected static Boolean start=Boolean.FALSE;
+	protected static Boolean start=Boolean.FALSE;			// le jeu est il en pause ?
 	private static Boolean start_=Boolean.FALSE;
-	protected static Boolean wh=Boolean.FALSE;
 	protected static Boolean Islvl=Boolean.FALSE;
 	public static ArrayList<Reward> Rew = new ArrayList<Reward>();
 	public static Boolean Iskey=Boolean.FALSE;

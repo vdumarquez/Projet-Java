@@ -5,9 +5,8 @@ package jeu;
 
 public class Characters extends Bots {
 	
-	protected int weight;
 	protected Power p;
-	
+
 	
 	public Characters(){
 		super();
@@ -103,15 +102,15 @@ public class Characters extends Bots {
 		dir = Deplacement.IMMOBILE;
 		setImage(name+"Up.png");
 		v = 300;
-		nbl=3;
+		nbl=4;
 	}
 	
 	private void WarriorAr()  {
 		name="WarriorAr";
 		dir = Deplacement.IMMOBILE;
 		setImage(name+"Up.png");
-		v = 500;
-		nbl=3;
+		v = 400;
+		nbl=5;
 	}
 	
 	private void WarriorFire()  {

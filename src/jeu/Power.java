@@ -20,6 +20,8 @@ public class Power {
 	protected int y;
 	protected long v;
 	private String mun;
+	
+	
 	public void Init(Character c) {
 		if(c==Character.WPISTOL) {
 			try {
@@ -61,6 +63,7 @@ public class Power {
 			mun="Fire";
 		}
 	}
+	
 	protected void Active() {
 		// TODO Auto-generated method stub
 		int x_,y_;

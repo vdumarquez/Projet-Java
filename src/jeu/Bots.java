@@ -9,12 +9,12 @@ import javax.imageio.ImageIO;
 public class Bots {
 	protected int x;
 	protected int y;
-	protected double nbl;
-	private double nbl_;
+	protected double nbl;  // nbr de vie 
+	private double nbl_;  // nbr de vie max
 	protected Image I;
 	protected Deplacement dir;
-	protected long v;
-	protected String name;
+	protected long v;  // vitesse de déplacement
+	protected String name; 
 	protected Character ch;
 	protected Boolean Isalive;
 
@@ -29,8 +29,10 @@ public class Bots {
 		Init(c);
 	}
 
+	/*
+	 * Permet d'initialiser le bot en fonction de son Enumération
+	 */
 	public void Init(Character c) {
-		if(c.toString().contains("Z"))
 			setPosition();
 		if(c==Character.ZPUNK) {
 			ZPUNK();
@@ -40,6 +42,7 @@ public class Bots {
 			ZRED();
 		}
 	}
+
 	public void setPosition(){
 		do {
 			x=(int) (Math.random()*20);
@@ -86,7 +89,7 @@ public class Bots {
 				v=v+10;
 		}else if(ch==Character.ZPUNK) {
 			if(v>300) {
-				v=v-10;
+				v=v-50;
 				nbl=nbl_;
 			}else {
 				nbl_++;

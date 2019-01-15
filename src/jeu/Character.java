@@ -7,5 +7,4 @@ public enum Character {
 	WPISTOL,
 	WAR,
 	WFIRE;
-
 }

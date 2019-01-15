@@ -24,7 +24,6 @@ public class PMap extends JPanel {
 	private Image PaPl;
 	private Image FondDG;
 	private Image PTS;
-	private Image PTRS;
 	private Image ZOM;
 	static Image Fond; 
 	
@@ -38,7 +37,6 @@ public class PMap extends JPanel {
 			PaPl = ImageIO.read(new File("PausePlay.png"));
 			FondDG = ImageIO.read(new File("GameOver.png"));
 			PTS = ImageIO.read(new File("PressToStart.png"));
-			PTRS = ImageIO.read(new File("PressToRestart.png"));
 			ZOM = ImageIO.read(new File("Zombihead.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -78,7 +76,7 @@ public class PMap extends JPanel {
 								this.getHeight()/20, this);
 					}else {
 					g.drawImage(Game.c1.p.IF, (int)(0.02*this.getWidth())+j * this.getWidth() / 20,
-							(int) (0.04 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 100,
+							(int) (0.035 * this.getHeight()) + i * this.getHeight() / 20, this.getWidth() / 100,
 							this.getHeight() / 100, this);
 					}
 				}
@@ -125,9 +123,9 @@ public class PMap extends JPanel {
 	}
 	private void DGameOver(Graphics g) {
 		g.drawImage(FondDG, 0, 0, this.getWidth(), this.getHeight(),this);
-		g.setFont(new Font("TimesRoman", Font.PLAIN, this.getHeight()/3));
+		g.setFont(new Font("TimesRoman", Font.PLAIN, this.getHeight()/5));
 		g.setColor(Color.white);
-		g.drawString(Integer.toString(Game.score),(int) (0.55* this.getWidth()),(int) (0.28 * this.getHeight()));
+		g.drawString(Integer.toString(Game.score),(int) (0.82* this.getWidth()),(int) (0.2 * this.getHeight()));
 	}
 
 	private void DPlay(Graphics g) {

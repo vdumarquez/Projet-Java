@@ -30,6 +30,7 @@ public class KEVENT implements KeyListener {
 					Game.po=Boolean.FALSE;
 					Game.score=0;
 					Game.Islvl=Boolean.FALSE;
+					Game.Iskey=Boolean.FALSE;
 					Map.niv=0;
 					Map.lvl=Map.LFile();
 					for(int i=0;i<Game.b.length;i++) {
