@@ -1,5 +1,6 @@
 package jeu;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -124,10 +125,9 @@ public class PMap extends JPanel {
 	}
 	private void DGameOver(Graphics g) {
 		g.drawImage(FondDG, 0, 0, this.getWidth(), this.getHeight(),this);
-		g.drawImage(ZOM,(int) (0.2* this.getWidth()),0, this.getWidth() / 3, this.getHeight() / 3, this);
 		g.setFont(new Font("TimesRoman", Font.PLAIN, this.getHeight()/3));
+		g.setColor(Color.white);
 		g.drawString(Integer.toString(Game.score),(int) (0.55* this.getWidth()),(int) (0.28 * this.getHeight()));
-		g.drawImage(PTRS, (int) (0.25* this.getWidth()), (int) (0.5 * this.getHeight()) , this.getWidth()/2, this.getHeight()/2,this);
 	}
 
 	private void DPlay(Graphics g) {

@@ -3,6 +3,11 @@ package jeu;
 public class Algo {
 	private static EMap[][] PMap = new EMap[Map.NLin][Map.NCol];
 	private static EMap[][] RMap = new EMap[Map.NLin][Map.NCol];
+	
+	/*
+	 * Cette fonction permet de résoudre le chemin entre le bot et le joueur
+	 * retourne vrai ou faux et enregistre le chemin dans le tableau PMap
+	 */
 private static Boolean Resolve(int x, int y) {
 	Boolean h=Boolean.FALSE,b=Boolean.FALSE,g=Boolean.FALSE,d=Boolean.FALSE;
 	if(RMap[y][x]==EMap.WALL||RMap[y][x]==EMap.EXPLORED) {
@@ -28,6 +33,10 @@ private static Boolean Resolve(int x, int y) {
 		return Boolean.FALSE;
 }
 
+/*
+ * Cette fonction permet de savoir dans quelle direction doit se diriger le bot en fonction du chemin
+ * retourne la bonne direction
+ */
 public static Deplacement Move_Bot(int x, int y) {
 	for(int i=0;i<Map.NLin;i++) {
 		for(int j=0;j<Map.NCol;j++) {
